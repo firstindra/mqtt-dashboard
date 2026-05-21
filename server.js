@@ -4,10 +4,10 @@ const { Server } = require("socket.io");
 const mqtt       = require("mqtt");
 const config     = require("./config.json");
 
-const BROKER_HOST = config.BROKER_HOST;
-const BROKER_PORT = config.BROKER_PORT;
-const TOPIC       = config.TOPIC;
-const WEB_PORT    = process.env.PORT || 3000;
+const BROKER_HOST = process.env.BROKER_HOST || config.BROKER_HOST;
+const BROKER_PORT = process.env.BROKER_PORT || config.BROKER_PORT;
+const TOPIC       = process.env.TOPIC       || config.TOPIC;
+const WEB_PORT    = process.env.PORT        || 3000;
 
 const app    = express();
 const server = http.createServer(app);
